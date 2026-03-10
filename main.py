@@ -31,6 +31,15 @@ def drawer_box(frame):
         
         # for ex, ey, ew, eh in eyes_detection(roi_gray):
         #     cv2.rectangle(roi_color, (ex, ey), (ex+ew, ey+eh), (255, 0, 0), 2)
+        cv2.putText(
+            frame,
+            "hychoo24",              # nama
+            (x, y + h + 25),     # posisi teks
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.7,
+            (0, 255, 0),
+            2
+        )
 
 def release_resources():
     camera.release()
