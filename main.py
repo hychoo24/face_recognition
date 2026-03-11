@@ -25,7 +25,7 @@ def drawer_box(frame):
     for x, y, w, h in face_detection(frame):
         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
 
-        # uncommand jika ingin menampilkan rectangle pada mata
+        # Optional: Detect eyes within the detected face region
         # roi_gray = gray[y:y+h, x:x+w]
         # roi_color = frame[y:y+h, x:x+w]
         
@@ -33,8 +33,8 @@ def drawer_box(frame):
         #     cv2.rectangle(roi_color, (ex, ey), (ex+ew, ey+eh), (255, 0, 0), 2)
         cv2.putText(
             frame,
-            "hychoo24",              # nama
-            (x, y + h + 25),     # posisi teks
+            "hychoo24",
+            (x, y + h + 25),
             cv2.FONT_HERSHEY_SIMPLEX,
             0.7,
             (0, 255, 0),
