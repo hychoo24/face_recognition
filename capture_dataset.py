@@ -3,7 +3,7 @@ import os
 
 face_cascade = cv2.CascadeClassifier("model/face_ref.xml")
 
-name = input("Nama orang: ")
+name = input("Person's name: ")
 path = f"dataset/{name}"
 
 os.makedirs(path, exist_ok=True)
@@ -23,7 +23,6 @@ while True:
 
         cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),2)
 
-        # tekan S untuk save
         if cv2.waitKey(1) & 0xFF == ord('s'):
             count += 1
             cv2.imwrite(f"{path}/{count}.jpg", face)
@@ -33,12 +32,10 @@ while True:
 
     key = cv2.waitKey(1) & 0xFF
 
-    # tekan q untuk keluar
     if key == ord('q'):
         break
 
-    # otomatis stop jika sudah 20 gambar
-    if count >= 20:
+    if count >= 30:
         break
 
 cap.release()

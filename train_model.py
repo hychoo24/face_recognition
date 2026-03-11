@@ -32,4 +32,4 @@ recognizer.train(faces, labels)
 
 recognizer.save("model/face_model.yml")
 
-print("training selesai")
+print("Training completed. Saved to model/face_model.yml")
