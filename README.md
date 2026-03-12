@@ -7,6 +7,7 @@ A simple real-time face recognition project built with Python and OpenCV. This r
 - Real-time face detection from webcam input
 - Dataset collection per person
 - Face recognition model training using `LBPHFaceRecognizer`
+- Age prediction using `DeepFace`
 - Simple project structure for learning and experimentation
 
 ## Project Structure
@@ -30,6 +31,7 @@ face-recognition/
 
 - Python 3.8+
 - OpenCV (`opencv-contrib-python`)
+- DeepFace
 - Webcam
 
 ## Installation
@@ -37,7 +39,7 @@ face-recognition/
 Install the required packages:
 
 ```bash
-pip install opencv-contrib-python
+pip install opencv-contrib-python deepface
 ```
 
 ## Workflow
@@ -94,19 +96,17 @@ Start the main application:
 ```bash
 python main.py
 ```
-
+It will take a little time to run because of Age Prediction
 The webcam will open and the system will:
 
 - detect faces in each frame
 - predict the face label using the trained LBPH model
-- display the recognized name above the detected face
+- crop the detected face and run age prediction with `DeepFace`
+- display the recognized name and predicted age range above the detected face
 
 ## Notes
 
 - `opencv-contrib-python` is required because the project uses `cv2.face.LBPHFaceRecognizer_create()`.
 - If `model/face_model.yml` does not exist, run `train_model.py` first.
+- `deepface` must be installed before running `main.py`.
 - Recognition quality depends heavily on dataset consistency and image quality.
-
-## License
-
-This project is provided for learning and experimentation.

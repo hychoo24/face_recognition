@@ -10,6 +10,17 @@ names = {}
 
 label_id = 0
 
+
+def create_lbph_recognizer():
+    factory = getattr(cv2.face, "LBPHFaceRecognizer_create", None)
+    if factory is None:
+        raise RuntimeError(
+            "OpenCV LBPH recognizer is unavailable. Uninstall 'opencv-python' and "
+            "keep only 'opencv-contrib-python', then reinstall dependencies."
+        )
+
+    return factory()
+
 for person in os.listdir(dataset_path):
     names[label_id] = person
     person_path = os.path.join(dataset_path, person)
@@ -26,7 +37,7 @@ for person in os.listdir(dataset_path):
 
 labels = np.array(labels)
 
-recognizer = cv2.face.LBPHFaceRecognizer_create()
+recognizer = create_lbph_recognizer()
 
 recognizer.train(faces, labels)
 
