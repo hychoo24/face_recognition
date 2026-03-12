@@ -50,13 +50,17 @@ Run the dataset capture script:
 python capture_dataset.py
 ```
 
-You will be prompted to enter the person's name. A new folder will be created inside `dataset/` using that name.
+You will be prompted to select an action for the dataset.
+
+Menu options:
+
+- `1. Add Dataset` You will be prompted to enter the person's name. A new folder will be created inside `dataset/` using that name or uses an existing folder name to update dataset image
+- `2. Delete Dataset` asks for a dataset name and deletes that folder if it exists
 
 Controls:
 
 - Press `s` to save a detected face
 - Press `q` to quit
-- The program stops automatically after 30 captured images
 
 Recommendations for better results:
 
